@@ -42,6 +42,12 @@ jobs:
         builder_image: 'registry.access.redhat.com/ubi7/python-38'
         image: ${{ env.APP_NAME }}
         tags: ${{ env.IMAGE_TAGS }}
+    
+    - name: Install oc
+      uses: redhat-actions/oc-installer@v1
+      with:
+        oc_version: '4.6'
+  # Now, oc is available for the rest of these steps.
 
     # https://github.com/redhat-actions/push-to-registry#readme
     - name: Push to Registry 
